@@ -21,7 +21,11 @@ router.post("/signup", async (req, res) => {
     const token = jwt.sign({ id: newUser._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
     res.cookie("token", token, { httpOnly: true });
 
-    res.status(201).json({ message: "Signup successful" });
+    res.status(201).json({
+      message: "Signup successful",
+      token,
+      user: { id: newUser._id, email: newUser.email },
+    });
   } catch (err) {
     console.error("Signup error:", err);
     res.status(500).json({ message: "Signup failed" });
@@ -45,7 +49,7 @@ router.post("/login", async (req, res) => {
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
     res.cookie("token", token, { httpOnly: true });
 
-    res.status(200).json({ message: "Login successful", token });
+    res.status(200).json({ message: "Login successful", token, user: { id: user._id, email: user.email } });
   } catch (err) {
     console.error("Login error:", err);
     res.status(500).json({ message: "Login failed" });

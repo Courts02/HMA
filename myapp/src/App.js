@@ -19,7 +19,7 @@ import axiosInstance from './api/axiosInstance'; // Axios instance for API calls
 import './App.css';
 
 // Navigation component
-const Nav = ({ handleLogout }) => {
+const Nav = ({ user, handleLogout }) => {
   const location = useLocation();
 
   const isLinkActive = (path) => {
@@ -39,10 +39,11 @@ const Nav = ({ handleLogout }) => {
         <li className={isLinkActive('/patients') ? 'active' : ''}>
           <Link to="/patients">Patients</Link>
         </li>
-        <li>
-          <button onClick={handleLogout}>Logout</button>
-        </li>
       </ul>
+      <div className="user-info">
+        <span>Welcome, {user.email}</span>
+        <button onClick={handleLogout}>Logout</button>
+      </div>
     </nav>
   );
 };
@@ -50,6 +51,7 @@ const Nav = ({ handleLogout }) => {
 // Main App component
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')));
 
   useEffect(() => {
     if (token) {
@@ -62,7 +64,9 @@ const App = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     setToken(null);
+    setUser(null);
   };
 
   return (
@@ -70,7 +74,7 @@ const App = () => {
       <div className="container">
         <h1 style={{ color: 'green' }}>Hospital Management App</h1>
 
-        {token && <Nav handleLogout={handleLogout} />}
+        {token && user && <Nav user={user} handleLogout={handleLogout} />}
 
         <Routes>
           {/* Protected routes */}
@@ -84,8 +88,8 @@ const App = () => {
             </>
           ) : (
             <>
-              <Route path="/signup" element={<Signup setToken={setToken} />} />
-              <Route path="/login" element={<Login setToken={setToken} />} />
+              <Route path="/signup" element={<Signup setToken={setToken} setUser={setUser} />} />
+              <Route path="/login" element={<Login setToken={setToken} setUser={setUser} />} />
               <Route path="*" element={<Navigate to="/login" />} />
             </>
           )}
