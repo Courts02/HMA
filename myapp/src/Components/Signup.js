@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axiosInstance from "../api/axiosInstance";
 import { useNavigate, Link } from "react-router-dom";
-import "./Auth.css";
+import "../Auth.css";
 
 const Signup = ({ setToken, setUser }) => {
   const [email, setEmail] = useState("");
