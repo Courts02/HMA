@@ -1,0 +1,94 @@
+/* Minty blues and greens palette */
+:root {
+  --mint-green: #a3d9c1;      /* Soft mint */
+  --mint-green-dark: #6abf8e; /* Darker mint */
+  --soft-blue: #a8d0e6;       /* Light blue */
+  --blue-dark: #3a7ca5;       /* Dark blue */
+  --background-light: #f5fbf9; /* Very light mint/white */
+  --text-dark: #2f4f4f;       /* Dark teal/gray */
+}
+
+/* Container centered and spaced */
+.patient-main {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: flex-start; /* align items to top */
+  gap: 20px; /* space between form and list */
+  padding: 20px;
+  width: 100%;
+  max-width: 900px; /* max width so it doesn’t stretch too wide */
+  margin: 0 auto; /* center horizontally in the page */
+  background-color: var(--background-light);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Responsive: stack form and list vertically on smaller screens */
+@media (max-width: 768px) {
+  .patient-main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-sections,
+  .patients-section {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Form and patient list sections */
+.form-sections,
+.patients-section {
+  width: 45%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  height: auto; /* let it grow */
+  max-height: 600px;
+  overflow-y: auto; /* scroll if content too tall */
+}
+
+/* Patient card styling */
+.patient-card {
+  background-color: var(--mint-green);
+  border: 1px solid var(--mint-green-dark);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 12px rgba(107, 192, 160, 0.3);
+  color: var(--text-dark);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.patient-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(107, 192, 160, 0.5);
+}
+
+.patient-card h4 {
+  margin-bottom: 8px;
+}
+
+.patient-card p {
+  margin: 6px 0;
+  font-weight: 500;
+}
+
+/* Buttons */
+.patient-card button {
+  margin-top: 12px;
+  cursor: pointer;
+  background-color: var(--mint-green-dark);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.patient-card button:hover {
+  background-color: var(--blue-dark);
+}

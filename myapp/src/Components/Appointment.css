@@ -1,0 +1,144 @@
+:root {
+  --mint-green: #a3d9c1;
+  --mint-green-dark: #6abf8e;
+  --soft-blue: #a8d0e6;
+  --blue-dark: #3a7ca5;
+  --background-light: #f5fbf9;
+  --text-dark: #2f4f4f;
+}
+
+/* Main container for form + appointments */
+.flex-row {
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto; /* centers container horizontally with some vertical margin */
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: var(--background-light);
+  min-height: 100vh;
+  flex-wrap: nowrap; /* keep side by side on desktop */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Form section */
+.form-sections {
+  flex: 1 1 400px; /* grow/shrink, base width 400px */
+  max-width: 400px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 15px rgba(107, 192, 160, 0.3);
+}
+
+/* Appointment list section */
+.appointments-section {
+  flex: 1 1 400px;
+  max-width: 400px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 20px rgba(107, 192, 160, 0.2);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Form styling */
+.appointment-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.appointment-form label {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.appointment-form input {
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid var(--mint-green-dark);
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.appointment-form button {
+  background-color: var(--mint-green-dark);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.appointment-form button:hover {
+  background-color: var(--blue-dark);
+}
+
+/* Appointment cards list */
+.appointment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Appointment card */
+.appointment-card {
+  border: 1px solid var(--mint-green-dark);
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 6px 15px rgba(107, 192, 160, 0.3);
+  color: var(--text-dark);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.appointment-card:hover {
+  box-shadow: 0 10px 25px rgba(107, 192, 160, 0.6);
+  transform: scale(1.03);
+}
+
+.appointment-card p {
+  margin: 6px 0;
+}
+
+.appointment-card button {
+  background-color: var(--mint-green-dark);
+  color: #fff;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.appointment-card button:hover {
+  background-color: var(--blue-dark);
+}
+
+/* Responsive: stack form and list vertically on smaller screens */
+@media (max-width: 768px) {
+  .flex-row {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    margin: 20px auto;
+  }
+
+  .form-sections,
+  .appointments-section {
+    max-width: 100%;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 30px;
+  }
+}

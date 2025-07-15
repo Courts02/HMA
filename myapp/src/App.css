@@ -1,0 +1,81 @@
+:root {
+  --mint-green: #a3d9c1;
+  --mint-green-dark: #6abf8e;
+  --soft-blue: #a8d0e6;
+  --blue-dark: #3a7ca5;
+  --background-light: #f5fbf9;
+  --text-dark: #2f4f4f;
+}
+
+.container {
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 20px 100px;
+  background-color: var(--background-light); /* soft minty off-white */
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Uncomment if you want vertical center too */
+  /* justify-content: center; */
+}
+
+/* Navigation styles */
+nav {
+  background-color: var(--mint-green-dark); /* teal-ish */
+  padding: 15px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(107, 192, 160, 0.5);
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 40px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* center nav links horizontally */
+}
+
+li {
+  margin: 0 20px;
+}
+
+/* Active nav item styles */
+li.active a {
+  color: #478b46; /* golden yellow for active link */
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #478b46; /* golden yellow on hover */
+}
+
+/* Flex helpers */
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}

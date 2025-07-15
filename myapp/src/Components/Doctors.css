@@ -1,0 +1,115 @@
+/* Minty blues and greens palette */
+:root {
+  --mint-green: #a3d9c1;
+  --mint-green-dark: #6abf8e;
+  --soft-blue: #a8d0e6;
+  --blue-dark: #3a7ca5;
+  --background-light: #f5fbf9;
+  --text-dark: #2f4f4f;
+}
+
+/* Container centered & spaced */
+.main-doc-container {
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: flex-start;
+  gap: 20px;
+  background-color: var(--background-light);
+  padding: 20px;
+  min-height: 100vh;
+  flex-wrap: wrap;
+}
+
+/* Doctors list section */
+.doctors-section {
+  width: 45%;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  max-height: 600px;
+  overflow-y: auto;
+  text-align: left; /* makes it easier to read */
+}
+
+/* Doctor card styling */
+.doctor-card {
+  background-color: var(--mint-green);
+  border: 1px solid var(--mint-green-dark);
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 12px rgba(107, 192, 160, 0.3);
+  color: var(--text-dark);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.doctor-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(107, 192, 160, 0.5);
+}
+
+.doctor-card p {
+  margin: 6px 0;
+  font-weight: 500;
+}
+
+/* Form section */
+.form-sections {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+  padding: 20px;
+  width: 45%;
+  max-height: 600px;
+  overflow-y: auto;
+  margin-bottom: 0; /* Remove large bottom margin */
+}
+
+.form-sections h4 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+/* Form inputs & labels */
+.form-sections label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: block;
+  color: var(--text-dark);
+}
+
+.form-sections input {
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid var(--mint-green-dark);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Buttons */
+.form-sections button,
+button {
+  cursor: pointer;
+  background-color: var(--mint-green-dark);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 12px;
+}
+
+.form-sections button:hover,
+button:hover {
+  background-color: var(--blue-dark);
+}
+
+/* Button container for edit/delete */
+.btn-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
