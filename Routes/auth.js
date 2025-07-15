@@ -14,9 +14,7 @@ router.post("/signup", async (req, res) => {
     const existingUser = await User.findOne({ email });
     if (existingUser) return res.status(400).json({ message: "User already exists" });
 
-    // Hash password
-    const hashedPassword = await bcrypt.hash(password, 12);
-    const newUser = new User({ email, password: hashedPassword });
+    const newUser = new User({ email, password });
     await newUser.save();
 
     // Create JWT and set cookie
